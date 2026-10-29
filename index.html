@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dinesh Babu J | Finacle Core Banking Developer & PL/SQL Engineer</title>
-  <meta name="description" content="Finacle Core Banking Developer with 4+ years of experience across Finacle 10.x/11.x, PL/SQL, FI Integrations, and batch automation for major Indian and European banks." />
+  <title>Dinesh Babu J | Finacle Core Banking Developer & Enterprise Systems Engineer</title>
+  <meta name="description" content="Portfolio of Dinesh Babu J - Finacle Core Banking Developer with 4+ years customizing Finacle 10.x/11.x, PL/SQL, FI APIs, and batch processing for premier banks." />
 
-  <!-- Tailwind CSS via CDN (Zero install, loads instantly) -->
+  <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -40,6 +40,17 @@
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
+    /* Toast animation */
+    @keyframes toastSlide {
+      0% { transform: translateY(100%) translateX(-50%); opacity: 0; }
+      10% { transform: translateY(0) translateX(-50%); opacity: 1; }
+      90% { transform: translateY(0) translateX(-50%); opacity: 1; }
+      100% { transform: translateY(100%) translateX(-50%); opacity: 0; }
+    }
+    .toast-active {
+      display: flex !important;
+      animation: toastSlide 2.5s ease-in-out forwards;
+    }
   </style>
 </head>
 <body class="bg-brand-dark text-slate-200 antialiased selection:bg-brand-teal/20 selection:text-teal-300 relative min-h-screen">
@@ -47,6 +58,12 @@
   <!-- Ambient Glow Effects -->
   <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
   <div class="fixed -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-teal-500/10 blur-[130px] rounded-full pointer-events-none z-0"></div>
+
+  <!-- Notification Toast (for copy actions) -->
+  <div id="toast" class="fixed bottom-20 sm:bottom-8 left-1/2 z-50 hidden items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900/95 border border-brand-teal/40 text-teal-300 text-xs font-mono shadow-2xl backdrop-blur-md">
+    <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+    <span id="toast-msg">Copied to clipboard!</span>
+  </div>
 
   <div class="relative z-10 max-w-4xl mx-auto px-5 sm:px-8 py-8 sm:py-16 space-y-16">
     
@@ -56,44 +73,61 @@
         <span class="w-2.5 h-2.5 rounded-full bg-brand-teal animate-pulse"></span>
         <span class="font-mono text-sm font-semibold tracking-tight text-white">dinesh.dev</span>
       </div>
-      <div class="flex items-center gap-3 sm:gap-5 text-xs font-mono">
+      <div class="flex items-center gap-3 sm:gap-4 text-xs font-mono">
         <a href="#experience" class="text-slate-400 hover:text-brand-teal transition">/experience</a>
+        <a href="#pipeline" class="hidden sm:inline-block text-slate-400 hover:text-brand-teal transition">/architecture</a>
         <a href="#skills" class="text-slate-400 hover:text-brand-teal transition">/stack</a>
-        <a href="#clients" class="text-slate-400 hover:text-brand-teal transition">/clients</a>
-        <a href="mailto:dinesh2211998@gmail.com" class="px-2.5 py-1 rounded bg-brand-teal/10 border border-brand-teal/30 text-teal-300 hover:bg-brand-teal/20 transition">Contact</a>
+        
+        <!-- Direct Resume Download Button in Nav -->
+        <a href="Dinesh_Babu_J_Resume.pdf" download="Dinesh_Babu_J_Resume.pdf" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-teal-500/10 border border-teal-500/30 text-teal-300 hover:bg-teal-500/20 font-semibold transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+          <span>CV</span>
+        </a>
       </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="space-y-6 pt-2">
+      <!-- Live Status Badge -->
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-xs font-mono text-slate-300">
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-        Finacle 10.x & 11.x Core Banking Specialist
+        Finacle 10.x & 11.x Core Banking Developer
       </div>
 
-      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white leading-tight">
-        Dinesh Babu J
-      </h1>
-      
-      <p class="text-lg sm:text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-400 to-teal-100">
-        Finacle Core Banking Developer & Enterprise Systems Engineer
-      </p>
+      <div class="space-y-2">
+        <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-white leading-tight">
+          Dinesh Babu J
+        </h1>
+        <p class="text-lg sm:text-xl font-medium text-transparent bg-clip-text bg-gradient-to-r from-teal-300 via-emerald-400 to-teal-100">
+          Core Banking Platform Specialist & High-Throughput SQL Engineer
+        </p>
+      </div>
 
       <p class="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
-        Over 4 years of experience delivering mission-critical core banking customizations across India and Europe. Specialized in PL/SQL query optimization, FI Inbound/Outbound integrations, batch settlement automation, and straight-through processing.
+        4+ years of core banking customization across 5 tier-1 banks in India and Europe (Federal, IndusInd, Union Bank, DCB, ING Netherlands). Specialized in Finacle 10.x/11.x, PL/SQL batch optimization, FI Inbound/Outbound interfaces, and straight-through processing.
       </p>
 
-      <!-- Action Buttons -->
+      <!-- Primary Action Buttons (Download Resume + LinkedIn + Contact) -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
-        <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-lg bg-brand-teal hover:bg-teal-400 text-slate-950 font-semibold text-sm transition-all shadow-lg shadow-teal-500/20">
-          LinkedIn Profile &rarr;
+        
+        <!-- PROMINENT RESUME DOWNLOAD BUTTON -->
+        <a href="Dinesh_Babu_J_Resume.pdf" download="Dinesh_Babu_J_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-teal hover:bg-teal-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-teal-500/25 hover:-translate-y-0.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+          Download Official Resume (PDF)
         </a>
-        <a href="mailto:dinesh2211998@gmail.com" class="px-5 py-2.5 rounded-lg bg-brand-card hover:bg-slate-800 border border-brand-border text-slate-200 font-medium text-sm transition">
-          Email Dinesh
+
+        <!-- LinkedIn Profile -->
+        <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-card hover:bg-slate-800 border border-brand-border text-slate-200 font-medium text-sm transition hover:-translate-y-0.5">
+          <svg class="w-4 h-4 text-teal-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
         </a>
-        <a href="tel:+919344989891" class="px-4 py-2.5 rounded-lg text-slate-400 hover:text-white font-mono text-xs transition">
-          +91 93449 89891
-        </a>
+
+        <!-- One-Click Copy Email -->
+        <button onclick="copyToClipboard('dinesh2211998@gmail.com', 'Email copied to clipboard!')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-brand-card/60 hover:bg-brand-card border border-brand-border text-slate-300 font-mono text-xs transition">
+          <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+          dinesh2211998@gmail.com
+        </button>
+
       </div>
 
       <!-- Quick Metrics Strip -->
@@ -110,13 +144,56 @@
         </div>
         <div class="p-3.5 sm:p-4 rounded-xl bg-brand-card/80 border border-brand-border">
           <div class="text-2xl sm:text-3xl font-bold font-mono text-white">STP</div>
-          <div class="text-xs font-semibold text-brand-teal mt-0.5">Automated Workflows</div>
-          <div class="text-[11px] text-slate-500 font-mono mt-0.5">FI & Batch Operations</div>
+          <div class="text-xs font-semibold text-brand-teal mt-0.5">Straight-Through Proc.</div>
+          <div class="text-[11px] text-slate-500 font-mono mt-0.5">FI & Automated Batch</div>
         </div>
       </div>
     </section>
 
-    <!-- Interactive Banking Clients Showcase -->
+    <!-- Visual Architecture / Transaction Flow -->
+    <section id="pipeline" class="space-y-4">
+      <div class="border-b border-brand-border pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Banking Architecture & Pipeline Flow</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Enterprise straight-through processing flow from client channels to core ledger.</p>
+        </div>
+        <span class="text-xs font-mono text-brand-teal">END-TO-END</span>
+      </div>
+
+      <div class="p-5 rounded-xl bg-brand-card/90 border border-brand-border space-y-4">
+        <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
+          <!-- Step 1 -->
+          <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+            <span class="text-[10px] text-slate-500">ENTRY</span>
+            <div class="font-bold text-white">External Channels</div>
+            <div class="text-[11px] text-slate-400">NetBanking / UPI / Host</div>
+          </div>
+          <!-- Step 2 -->
+          <div class="p-3 rounded-lg bg-slate-900 border border-teal-500/30 text-teal-300 space-y-1">
+            <span class="text-[10px] text-teal-400">INTEGRATION</span>
+            <div class="font-bold text-white">FI Inbound / APIs</div>
+            <div class="text-[11px] text-teal-400">SOAP / REST / XML</div>
+          </div>
+          <!-- Step 3 -->
+          <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+            <span class="text-[10px] text-slate-500">CORE ENGINE</span>
+            <div class="font-bold text-white">Finacle 10.x / 11.x</div>
+            <div class="text-[11px] text-slate-400">FUME JS & SWS Scripts</div>
+          </div>
+          <!-- Step 4 -->
+          <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
+            <span class="text-[10px] text-slate-500">LEDGER PERSISTENCE</span>
+            <div class="font-bold text-white">Oracle Database</div>
+            <div class="text-[11px] text-slate-400">Bulk PL/SQL & Partitioning</div>
+          </div>
+        </div>
+        <div class="text-[11px] text-slate-400 font-mono text-center">
+          &uarr;&darr; Fully automated with audit logging, parameterized reporting (Jasper/MRT), and batch settlement jobs
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivered Banking Clients Grid -->
     <section id="clients" class="space-y-4">
       <div class="border-b border-brand-border pb-3 flex items-center justify-between">
         <div>
@@ -170,10 +247,11 @@
             </span>
           </div>
           <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed list-disc list-inside">
-            <li>Executed custom and product menu customizations across CASA, Retail Loans, and Term Deposits to align with statutory and operational compliance.</li>
-            <li>Engineered custom FI Inbound integrations enabling real-time external system connectivity.</li>
-            <li>Architected batch automation jobs for automated charge collection, account freezes, and scheduled loan repayments.</li>
-            <li>Authored regulatory and MIS reports in Jasper iReport and MRT using optimized, parameterized SQL queries.</li>
+            <li>Execute custom and product menu customization across CASA, Retail Loans, and Term Deposits to meet regulatory and business guidelines.</li>
+            <li>Develop custom APIs and execute FI Inbound customizations for seamless external channel integration.</li>
+            <li>Built automated batch jobs handling charge collection, freezing applicable accounts, and executing scheduled loan repayments.</li>
+            <li>Develop MIS and regulatory reports in Jasper iReport and MRT using optimized, parameterized SQL queries.</li>
+            <li>Manage UAT support, live deployment execution, and post-go-live stability adhering to strict banking SLAs.</li>
           </ul>
         </article>
 
@@ -189,10 +267,11 @@
             </span>
           </div>
           <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed list-disc list-inside">
-            <li>Developed FI Inbound/Outbound integrations to enable straight-through processing (STP) and eliminate manual reconciliation steps.</li>
-            <li>Optimized PL/SQL packages, stored procedures, and scripts to significantly lower transaction response latency.</li>
-            <li>Implemented secure inbound APIs with standardized error handling and compliance audit logging.</li>
-            <li>Managed automated build configurations and branch releases using Azure Repos and CI/CD pipelines.</li>
+            <li>Executed custom menu customization across CASA, Retail Loans, Term Deposits, and Overdraft.</li>
+            <li>Developed and enhanced FI Inbound/Outbound integrations enabling straight-through processing (STP) and reducing manual operational intervention.</li>
+            <li>Tuned PL/SQL queries and scripting logic to significantly improve database response times under heavy concurrent load.</li>
+            <li>Developed secure inbound APIs with error handling and audit logging aligned with compliance guidelines.</li>
+            <li>Managed version control and CI/CD pipelines using Azure Repos for stable releases.</li>
           </ul>
         </article>
 
@@ -208,9 +287,9 @@
             </span>
           </div>
           <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed list-disc list-inside">
-            <li><strong>ING Bank (Netherlands):</strong> Executed product menu customizations via FINUX and ported legacy Finacle scripts to modern FUME JS 11.x architecture.</li>
-            <li><strong>DCB Bank (Mumbai):</strong> Built PL/SQL cursor-based procedures for high-volume reporting across CASA, Retail Loans, and Trade Finance.</li>
-            <li><strong>Union Bank of India (Hyderabad):</strong> Engineered FI interfaces, custom APIs, and parameterized Jasper reports across Loans, Term Deposits, and Cash Credit.</li>
+            <li><strong>ING Bank (Netherlands):</strong> Performed product menu customization using FINUX and executed JavaScript porting of Finacle scripts for FUME JS 11.x compatibility. Created custom APIs and batch jobs for Term Deposits & Overdraft.</li>
+            <li><strong>Union Bank of India (Hyderabad):</strong> Customized menus across Retail Loans, Term Deposits, Overdraft, Cash Credit, and Trade Finance. Built FI Inbound/Outbound integrations and Jasper iReports.</li>
+            <li><strong>DCB Bank (Mumbai):</strong> Delivered custom menus for CASA and Trade Finance, and authored PL/SQL cursor-based procedures for high-volume report generation.</li>
           </ul>
         </article>
       </div>
@@ -247,74 +326,4 @@
         </div>
 
         <!-- Banking Modules -->
-        <div class="p-4 sm:p-5 rounded-xl bg-brand-card border border-brand-border space-y-3">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-teal">Banking Domains</h3>
-          <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
-            <li>&bull; CASA & Retail Loans</li>
-            <li>&bull; Term Deposits & Overdraft</li>
-            <li>&bull; Cash Credit & Guarantees</li>
-            <li>&bull; Trade Finance & Remittances</li>
-          </ul>
-        </div>
-
-        <!-- APIs & Reporting -->
-        <div class="p-4 sm:p-5 rounded-xl bg-brand-card border border-brand-border space-y-3">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-teal">APIs & Reporting</h3>
-          <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
-            <li>&bull; SOAP & REST Services</li>
-            <li>&bull; Postman & SoapUI</li>
-            <li>&bull; Jasper iReport (JRXML)</li>
-            <li>&bull; MRT Reporting Engine</li>
-          </ul>
-        </div>
-
-        <!-- Dev Tools -->
-        <div class="p-4 sm:p-5 rounded-xl bg-brand-card border border-brand-border space-y-3 sm:col-span-2 md:col-span-2">
-          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-teal">Tools & Certification</h3>
-          <div class="grid grid-cols-2 gap-2 text-xs sm:text-sm text-slate-300">
-            <div>&bull; Git, SVN & Azure Repos</div>
-            <div>&bull; Jira, Agile, CI/CD</div>
-            <div>&bull; Unix / Linux Environments</div>
-            <div class="text-brand-teal font-medium">&bull; IBM Certified: Linux & Shell Scripting (2024)</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Education Background -->
-    <section class="space-y-4">
-      <div class="border-b border-brand-border pb-3">
-        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Education</h2>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-          <div class="font-bold text-sm text-white">M.C.A.</div>
-          <div class="text-xs text-brand-teal">Madurai Kamaraj University</div>
-          <div class="text-[11px] text-slate-500 font-mono mt-1">2022 – 2024</div>
-        </div>
-        <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-          <div class="font-bold text-sm text-white">M.Sc. Mathematics</div>
-          <div class="text-xs text-brand-teal">Madurai Kamaraj University</div>
-          <div class="text-[11px] text-slate-500 font-mono mt-1">2018 – 2020</div>
-        </div>
-        <div class="p-4 rounded-xl bg-brand-card border border-brand-border">
-          <div class="font-bold text-sm text-white">B.Sc. Mathematics</div>
-          <div class="text-xs text-brand-teal">Madurai Kamaraj University</div>
-          <div class="text-[11px] text-slate-500 font-mono mt-1">2015 – 2018</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="pt-6 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-500">
-      <div>&copy; 2026 Dinesh Babu J &middot; Aluva, Kerala</div>
-      <div class="flex items-center gap-4">
-        <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="hover:text-brand-teal transition">LinkedIn</a>
-        <a href="mailto:dinesh2211998@gmail.com" class="hover:text-brand-teal transition">Email</a>
-        <a href="tel:+919344989891" class="hover:text-brand-teal transition">Phone</a>
-      </div>
-    </footer>
-
-  </div>
-</body>
-</html>
+        <div class="p-4 sm:p-5 rounded-xl bg-brand-card border border-bran
