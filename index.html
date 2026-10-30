@@ -6,12 +6,6 @@
   <title>Dinesh Babu J | Finacle Core Banking Developer & Enterprise Systems Engineer</title>
   <meta name="description" content="Portfolio of Dinesh Babu J - Finacle Core Banking Developer with 4+ years customizing Finacle 10.x/11.x, PL/SQL, FI APIs, and batch processing for premier banks." />
 
-  <!-- Open Graph Meta Tags for LinkedIn / Social Previews -->
-  <meta property="og:title" content="Dinesh Babu J | Finacle Core Banking Developer & Enterprise Systems Engineer" />
-  <meta property="og:description" content="Core banking customization across 5 global banks, PL/SQL batch optimization, FI integrations, and system architecture." />
-  <meta property="og:url" content="https://dineshorigin.github.io/portfolio/" />
-  <meta property="og:type" content="website" />
-
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -46,6 +40,7 @@
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
     }
+    /* Toast animation */
     @keyframes toastSlide {
       0% { transform: translateY(100%) translateX(-50%); opacity: 0; }
       10% { transform: translateY(0) translateX(-50%); opacity: 1; }
@@ -64,7 +59,7 @@
   <div class="fixed inset-0 bg-grid pointer-events-none z-0"></div>
   <div class="fixed -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[350px] bg-teal-500/10 blur-[130px] rounded-full pointer-events-none z-0"></div>
 
-  <!-- Notification Toast -->
+  <!-- Notification Toast (for copy actions) -->
   <div id="toast" class="fixed bottom-20 sm:bottom-8 left-1/2 z-50 hidden items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900/95 border border-brand-teal/40 text-teal-300 text-xs font-mono shadow-2xl backdrop-blur-md">
     <span class="w-2 h-2 rounded-full bg-teal-400"></span>
     <span id="toast-msg">Copied to clipboard!</span>
@@ -83,6 +78,7 @@
         <a href="#pipeline" class="hidden sm:inline-block text-slate-400 hover:text-brand-teal transition">/architecture</a>
         <a href="#skills" class="text-slate-400 hover:text-brand-teal transition">/stack</a>
         
+        <!-- Direct Resume Download Button in Nav -->
         <a href="Dinesh_Babu_J_Resume.pdf" download="Dinesh_Babu_J_Resume.pdf" class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-teal-500/10 border border-teal-500/30 text-teal-300 hover:bg-teal-500/20 font-semibold transition">
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           <span>CV</span>
@@ -92,6 +88,7 @@
 
     <!-- Hero Section -->
     <section class="space-y-6 pt-2">
+      <!-- Live Status Badge -->
       <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-card border border-brand-border text-xs font-mono text-slate-300">
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
         Finacle 10.x & 11.x Core Banking Developer
@@ -110,22 +107,27 @@
         4+ years of core banking customization across 5 tier-1 banks in India and Europe (Federal, IndusInd, Union Bank, DCB, ING Netherlands). Specialized in Finacle 10.x/11.x, PL/SQL batch optimization, FI Inbound/Outbound interfaces, and straight-through processing.
       </p>
 
-      <!-- Primary Action Buttons -->
+      <!-- Primary Action Buttons (Download Resume + LinkedIn + Contact) -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
+        
+        <!-- PROMINENT RESUME DOWNLOAD BUTTON -->
         <a href="Dinesh_Babu_J_Resume.pdf" download="Dinesh_Babu_J_Resume.pdf" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-teal hover:bg-teal-400 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-teal-500/25 hover:-translate-y-0.5">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
           Download Official Resume (PDF)
         </a>
 
+        <!-- LinkedIn Profile -->
         <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-brand-card hover:bg-slate-800 border border-brand-border text-slate-200 font-medium text-sm transition hover:-translate-y-0.5">
           <svg class="w-4 h-4 text-teal-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           LinkedIn
         </a>
 
+        <!-- One-Click Copy Email -->
         <button onclick="copyToClipboard('dinesh2211998@gmail.com', 'Email copied to clipboard!')" class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-lg bg-brand-card/60 hover:bg-brand-card border border-brand-border text-slate-300 font-mono text-xs transition">
           <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
           dinesh2211998@gmail.com
         </button>
+
       </div>
 
       <!-- Quick Metrics Strip -->
@@ -148,76 +150,6 @@
       </div>
     </section>
 
-    <!-- Delivered Banking Solutions (Monochrome Icon Cards) -->
-    <section id="clients" class="space-y-4">
-      <div class="border-b border-brand-border pb-3 flex items-center justify-between">
-        <div>
-          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Delivered Banking Solutions</h2>
-          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Enterprise core banking modules delivered across premier institutional clients.</p>
-        </div>
-        <span class="text-xs font-mono text-brand-teal">5 GLOBAL BANKS</span>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        
-        <!-- Federal Bank -->
-        <div class="flex items-center gap-3.5 p-3.5 rounded-xl bg-brand-card border border-brand-border hover:border-teal-500/40 transition">
-          <div class="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center font-mono font-bold text-xs text-teal-300 shrink-0">
-            FB
-          </div>
-          <div class="min-w-0">
-            <div class="text-sm font-bold text-white truncate">Federal Bank</div>
-            <div class="text-[11px] text-slate-400 font-mono truncate">Finacle 10.x &middot; CASA, Loans & Batch</div>
-          </div>
-        </div>
-
-        <!-- IndusInd Bank -->
-        <div class="flex items-center gap-3.5 p-3.5 rounded-xl bg-brand-card border border-brand-border hover:border-teal-500/40 transition">
-          <div class="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center font-mono font-bold text-xs text-teal-300 shrink-0">
-            IB
-          </div>
-          <div class="min-w-0">
-            <div class="text-sm font-bold text-white truncate">IndusInd Bank</div>
-            <div class="text-[11px] text-slate-400 font-mono truncate">Finacle 10.x &middot; FI APIs & Overdraft</div>
-          </div>
-        </div>
-
-        <!-- Union Bank of India -->
-        <div class="flex items-center gap-3.5 p-3.5 rounded-xl bg-brand-card border border-brand-border hover:border-teal-500/40 transition">
-          <div class="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center font-mono font-bold text-xs text-teal-300 shrink-0">
-            UB
-          </div>
-          <div class="min-w-0">
-            <div class="text-sm font-bold text-white truncate">Union Bank of India</div>
-            <div class="text-[11px] text-slate-400 font-mono truncate">Multi-Module &middot; Trade & Deposits</div>
-          </div>
-        </div>
-
-        <!-- DCB Bank -->
-        <div class="flex items-center gap-3.5 p-3.5 rounded-xl bg-brand-card border border-brand-border hover:border-teal-500/40 transition">
-          <div class="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center font-mono font-bold text-xs text-teal-300 shrink-0">
-            DCB
-          </div>
-          <div class="min-w-0">
-            <div class="text-sm font-bold text-white truncate">DCB Bank</div>
-            <div class="text-[11px] text-slate-400 font-mono truncate">CASA &middot; Trade Finance & PL/SQL</div>
-          </div>
-        </div>
-
-        <!-- ING Bank Netherlands -->
-        <div class="flex items-center gap-3.5 p-3.5 rounded-xl bg-brand-card border border-brand-border hover:border-teal-500/40 transition sm:col-span-2 md:col-span-2">
-          <div class="w-10 h-10 rounded-lg bg-teal-500/10 border border-teal-500/20 flex items-center justify-center font-mono font-bold text-xs text-teal-300 shrink-0">
-            ING
-          </div>
-          <div class="min-w-0">
-            <div class="text-sm font-bold text-white truncate">ING Bank (Netherlands)</div>
-            <div class="text-[11px] text-brand-teal font-mono truncate">Finacle 11.x &middot; FUME JS Script Porting & FINUX</div>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
     <!-- Visual Architecture / Transaction Flow -->
     <section id="pipeline" class="space-y-4">
       <div class="border-b border-brand-border pb-3 flex items-center justify-between">
@@ -230,21 +162,25 @@
 
       <div class="p-5 rounded-xl bg-brand-card/90 border border-brand-border space-y-4">
         <div class="grid grid-cols-1 sm:grid-cols-4 gap-3 text-center text-xs font-mono">
+          <!-- Step 1 -->
           <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
             <span class="text-[10px] text-slate-500">ENTRY</span>
             <div class="font-bold text-white">External Channels</div>
             <div class="text-[11px] text-slate-400">NetBanking / UPI / Host</div>
           </div>
+          <!-- Step 2 -->
           <div class="p-3 rounded-lg bg-slate-900 border border-teal-500/30 text-teal-300 space-y-1">
             <span class="text-[10px] text-teal-400">INTEGRATION</span>
             <div class="font-bold text-white">FI Inbound / APIs</div>
             <div class="text-[11px] text-teal-400">SOAP / REST / XML</div>
           </div>
+          <!-- Step 3 -->
           <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
             <span class="text-[10px] text-slate-500">CORE ENGINE</span>
             <div class="font-bold text-white">Finacle 10.x / 11.x</div>
             <div class="text-[11px] text-slate-400">FUME JS & SWS Scripts</div>
           </div>
+          <!-- Step 4 -->
           <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 space-y-1">
             <span class="text-[10px] text-slate-500">LEDGER PERSISTENCE</span>
             <div class="font-bold text-white">Oracle Database</div>
@@ -252,7 +188,41 @@
           </div>
         </div>
         <div class="text-[11px] text-slate-400 font-mono text-center">
-          &uarr;&darr; Automated audit logging, parameterized reporting (Jasper/MRT), and batch settlement jobs
+          &uarr;&darr; Fully automated with audit logging, parameterized reporting (Jasper/MRT), and batch settlement jobs
+        </div>
+      </div>
+    </section>
+
+    <!-- Delivered Banking Clients Grid -->
+    <section id="clients" class="space-y-4">
+      <div class="border-b border-brand-border pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Delivered Banking Solutions</h2>
+          <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Core banking delivery across premier institutional clients.</p>
+        </div>
+        <span class="text-xs font-mono text-brand-teal">5 GLOBAL BANKS</span>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border text-center">
+          <div class="font-bold text-sm text-white">Federal Bank</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">Finacle 10.x</div>
+        </div>
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border text-center">
+          <div class="font-bold text-sm text-white">IndusInd Bank</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">Finacle 10.x</div>
+        </div>
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border text-center">
+          <div class="font-bold text-sm text-white">Union Bank</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">Multi-Module</div>
+        </div>
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border text-center">
+          <div class="font-bold text-sm text-white">DCB Bank</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">CASA & Loans</div>
+        </div>
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border text-center col-span-2 sm:col-span-1">
+          <div class="font-bold text-sm text-white">ING Bank</div>
+          <div class="text-[11px] text-brand-teal font-mono mt-0.5">Netherlands (11.x)</div>
         </div>
       </div>
     </section>
@@ -318,4 +288,42 @@
           </div>
           <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 leading-relaxed list-disc list-inside">
             <li><strong>ING Bank (Netherlands):</strong> Performed product menu customization using FINUX and executed JavaScript porting of Finacle scripts for FUME JS 11.x compatibility. Created custom APIs and batch jobs for Term Deposits & Overdraft.</li>
-            <li><strong>Union Bank of India (Hyderabad):</strong> Customized menu
+            <li><strong>Union Bank of India (Hyderabad):</strong> Customized menus across Retail Loans, Term Deposits, Overdraft, Cash Credit, and Trade Finance. Built FI Inbound/Outbound integrations and Jasper iReports.</li>
+            <li><strong>DCB Bank (Mumbai):</strong> Delivered custom menus for CASA and Trade Finance, and authored PL/SQL cursor-based procedures for high-volume report generation.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- Technical Skills Matrix -->
+    <section id="skills" class="space-y-6">
+      <div class="border-b border-brand-border pb-3">
+        <h2 class="text-xl sm:text-2xl font-bold tracking-tight text-white">Technical Specializations</h2>
+        <p class="text-xs sm:text-sm text-slate-400 mt-0.5">Core banking frameworks, databases, and enterprise tooling.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <!-- Finacle Stack -->
+        <div class="p-4 sm:p-5 rounded-xl bg-brand-card border border-brand-border space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-teal">Finacle Ecosystem</h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+            <li>&bull; Finacle 10.x & 11.x</li>
+            <li>&bull; FUME JS & FINUX</li>
+            <li>&bull; FI Inbound & Outbound</li>
+            <li>&bull; CRM & ONS Customization</li>
+          </ul>
+        </div>
+
+        <!-- Database & Dev -->
+        <div class="p-4 sm:p-5 rounded-xl bg-brand-card border border-brand-border space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-brand-teal">Development & Data</h3>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+            <li>&bull; Oracle SQL & PL/SQL</li>
+            <li>&bull; Cursors, Procedures & Packages</li>
+            <li>&bull; Core Java & JavaScript</li>
+            <li>&bull; Linux / Shell Scripting</li>
+          </ul>
+        </div>
+
+        <!-- Banking Modules -->
+        <div class="p-4 sm:p-5 rounded-xl bg-brand-card border border-bran
