@@ -1,7 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en" class="scroll-smooth" id="html-root">
 <head>
   <meta charset="UTF-8" />
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dinesh Babu J | Finacle Customization Developer</title>
   <meta name="description" content="Portfolio of Dinesh Babu J - Senior Software Engineer specializing in Finacle Customization, PL/SQL, and Core Banking Modules." />
@@ -16,6 +20,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           colors: {
@@ -25,6 +30,11 @@
               dark: '#0f172a',
               card: '#1e293b',
               border: '#334155'
+            },
+            oled: {
+              bg: '#000000',
+              card: '#0a0a0a',
+              border: '#1f1f1f'
             }
           }
         }
@@ -38,7 +48,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body { font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease; }
     .font-mono { font-family: 'JetBrains Mono', monospace; }
     @keyframes toastFade {
       0% { transform: translateY(100%) translateX(-50%); opacity: 0; }
@@ -63,15 +73,28 @@
   <div class="max-w-4xl mx-auto px-5 sm:px-8 py-8 sm:py-14 space-y-12">
     
     <!-- Top Navigation -->
-    <nav class="flex items-center justify-between border-b border-brand-border pb-4">
+    <nav class="flex items-center justify-between border-b border-brand-border pb-4 theme-border">
       <div class="flex items-center gap-2">
         <span class="w-2.5 h-2.5 rounded-full bg-teal-400"></span>
         <span class="font-mono text-sm font-semibold tracking-tight text-white">dinesh.dev</span>
       </div>
       <div class="flex items-center gap-3 sm:gap-4 text-xs font-mono">
         <a href="#experience" class="text-slate-400 hover:text-teal-400 transition">Experience</a>
-        <a href="#projects" class="text-slate-400 hover:text-teal-400 transition">Projects</a>
+        <a href="#modules" class="hidden sm:inline-block text-slate-400 hover:text-teal-400 transition">Modules</a>
+        <a href="#insights" class="text-slate-400 hover:text-teal-400 transition">Insights</a>
         <a href="#skills" class="text-slate-400 hover:text-teal-400 transition">Skills</a>
+
+        <!-- Feature 4: Theme Toggle (Navy Dark / OLED Black) -->
+        <button 
+          id="theme-toggle" 
+          onclick="toggleOledTheme()" 
+          title="Toggle OLED Pure Black / Navy Dark"
+          class="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex items-center gap-1.5"
+        >
+          <span id="theme-icon">🌙</span>
+          <span class="hidden sm:inline text-[11px]" id="theme-label">OLED</span>
+        </button>
+
         <a href="Dinesh_Babu_J_Resume.pdf" download="Dinesh_Babu_J_Resume.pdf" class="px-2.5 py-1 rounded bg-teal-500/10 border border-teal-500/30 text-teal-300 font-semibold hover:bg-teal-500/20 transition">
           Resume PDF &darr;
         </a>
@@ -80,158 +103,291 @@
 
     <!-- Header / Introduction -->
     <section class="space-y-4">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-card border border-brand-border text-xs text-slate-300">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-card border border-brand-border text-xs text-slate-300 theme-card theme-border">
         <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
         Senior Software Engineer &middot; Finacle Customization
       </div>
 
-      <div class="space-y-1">
-        <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">
-          Dinesh Babu J
-        </h1>
-        <p class="text-base sm:text-lg font-medium text-teal-400">
-          Finacle Customization Developer & PL/SQL Engineer
-        </p>
+      <div class="flex flex-col-reverse sm:flex-row sm:items-center justify-between gap-6">
+        <div class="space-y-1">
+          <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-white">
+            Dinesh Babu J
+          </h1>
+          <p class="text-base sm:text-lg font-medium text-teal-400">
+            Finacle Customization Developer & PL/SQL Engineer
+          </p>
+        </div>
+        <!-- Rounded Profile Avatar -->
+        <div class="shrink-0 self-start sm:self-center">
+          <img 
+            src="favicon.png" 
+            alt="Dinesh Babu J" 
+            class="w-20 h-20 sm:w-24 sm:h-24 rounded-2xl object-cover border border-brand-border bg-brand-card shadow-lg ring-2 ring-teal-500/10 theme-border"
+            onerror="this.style.display='none'"
+          />
+        </div>
       </div>
 
       <p class="text-sm sm:text-base text-slate-300 leading-relaxed max-w-2xl">
-        4+ years of hands-on experience in Finacle core banking customization (10.x &amp; 11.x) and Oracle PL/SQL. Specialized in custom menu development, Finacle scripting, FI integrations, batch automation, and regulatory reporting across CASA, Retail Loans, and Term Deposits.
+        4+ years of hands-on experience in Finacle core banking customization (10.x &amp; 11.x) and Oracle PL/SQL[span_9](start_span)[span_9](end_span)[span_10](start_span)[span_10](end_span). Specialized in custom menu development, Finacle scripting, FI integrations, batch automation, and regulatory reporting across CASA, Retail Loans, and Term Deposits[span_11](start_span)[span_11](end_span)[span_12](start_span)[span_12](end_span).
       </p>
 
-      <!-- Action Buttons -->
+      <!-- Action Buttons with Feature 3: Direct Email Contact -->
       <div class="flex flex-wrap items-center gap-3 pt-2">
         <a href="Dinesh_Babu_J_Resume.pdf" download="Dinesh_Babu_J_Resume.pdf" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-600 hover:bg-teal-500 text-white font-medium text-sm transition">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
           Download Resume (PDF)
         </a>
 
-        <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-card hover:bg-slate-700 border border-brand-border text-slate-200 text-sm font-medium transition">
-          <svg class="w-4 h-4 text-teal-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          LinkedIn Profile
+        <!-- Feature 3: 1-Click Pre-filled Email Contact Link -->
+        <a 
+          href="mailto:dinesh2211998@gmail.com?subject=Finacle%20Opportunity%20-%20Discussion"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-teal-500/10 hover:bg-teal-500/20 text-teal-300 font-medium text-sm border border-teal-500/30 transition"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          Discuss Opportunity
         </a>
 
-        <button onclick="copyToClipboard('dinesh2211998@gmail.com', 'Email copied!')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-brand-card hover:bg-slate-700 border border-brand-border text-slate-300 font-mono text-xs transition">
+        <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-brand-card hover:bg-slate-700 border border-brand-border text-slate-200 text-sm font-medium transition theme-card theme-border">
+          <svg class="w-4 h-4 text-teal-400" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+          LinkedIn
+        </a>
+
+        <button onclick="copyToClipboard('dinesh2211998@gmail.com', 'Email copied!')" class="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-brand-card hover:bg-slate-700 border border-brand-border text-slate-300 font-mono text-xs transition theme-card theme-border">
           dinesh2211998@gmail.com
         </button>
       </div>
 
       <!-- Overview Stats -->
-      <div class="grid grid-cols-3 gap-3 pt-4 border-t border-brand-border">
-        <div class="p-3 rounded-lg bg-brand-card border border-brand-border">
+      <div class="grid grid-cols-3 gap-3 pt-4 border-t border-brand-border theme-border">
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
           <div class="text-2xl font-bold font-mono text-white">4+</div>
           <div class="text-xs text-slate-400 mt-0.5">Years Experience</div>
         </div>
-        <div class="p-3 rounded-lg bg-brand-card border border-brand-border">
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
           <div class="text-2xl font-bold font-mono text-white">5</div>
-          <div class="text-xs text-slate-400 mt-0.5">Banking Clients</div>
+          <div class="text-xs text-slate-400 mt-0.5">Banking Clients[span_13](start_span)[span_13](end_span)[span_14](start_span)[span_14](end_span)</div>
         </div>
-        <div class="p-3 rounded-lg bg-brand-card border border-brand-border">
+        <div class="p-3 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
           <div class="text-2xl font-bold font-mono text-white">10.x &amp; 11.x</div>
-          <div class="text-xs text-slate-400 mt-0.5">Finacle Versions</div>
+          <div class="text-xs text-slate-400 mt-0.5">Finacle Versions[span_15](start_span)[span_15](end_span)[span_16](start_span)[span_16](end_span)</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 2: Finacle Module Matrix -->
+    <section id="modules" class="space-y-4">
+      <div class="border-b border-brand-border pb-2 theme-border flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-bold text-white">Finacle Architectural Breadth</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Categorized banking domains and functional module customizations.</p>
+        </div>
+        <span class="text-xs font-mono text-teal-400">CORE MODULES</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <!-- Lending & Credit -->
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-2 theme-card theme-border">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+            <div class="text-sm font-bold text-white">Lending &amp; Credit</div>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Retail Loans[span_17](start_span)[span_17](end_span)[span_18](start_span)[span_18](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Term Loans</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Overdraft (OD)[span_19](start_span)[span_19](end_span)[span_20](start_span)[span_20](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Cash Credit (CC)[span_21](start_span)[span_21](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Repayment Sweeps[span_22](start_span)[span_22](end_span)</span>
+          </div>
+        </div>
+
+        <!-- Deposits & Core Operations -->
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-2 theme-card theme-border">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+            <div class="text-sm font-bold text-white">Deposits &amp; Core Operations</div>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">CASA Accounts[span_23](start_span)[span_23](end_span)[span_24](start_span)[span_24](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Term Deposits[span_25](start_span)[span_25](end_span)[span_26](start_span)[span_26](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Batch Charge Sweeps[span_27](start_span)[span_27](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Account Freezing[span_28](start_span)[span_28](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">General Ledger (GL)[span_29](start_span)[span_29](end_span)</span>
+          </div>
+        </div>
+
+        <!-- Trade & Integration -->
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-2 theme-card theme-border">
+          <div class="flex items-center gap-2">
+            <span class="w-2 h-2 rounded-full bg-teal-400"></span>
+            <div class="text-sm font-bold text-white">Trade &amp; Middleware</div>
+          </div>
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Trade Finance[span_30](start_span)[span_30](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">Bank Guarantees[span_31](start_span)[span_31](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">FI Inbound/Outbound[span_32](start_span)[span_32](end_span)[span_33](start_span)[span_33](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">FUME JS 11.x[span_34](start_span)[span_34](end_span)</span>
+            <span class="px-2 py-0.5 rounded bg-slate-900/80 border border-slate-700/80 text-[11px] text-slate-300 font-mono">FINUX Menus[span_35](start_span)[span_35](end_span)</span>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Client Projects Handled -->
     <section id="projects" class="space-y-4">
-      <div class="border-b border-brand-border pb-2">
+      <div class="border-b border-brand-border pb-2 theme-border">
         <h2 class="text-xl font-bold text-white">Banking Client Projects</h2>
         <p class="text-xs text-slate-400 mt-0.5">Core banking customization and module development delivered for premier banks.</p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <!-- Federal Bank -->
-        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1">
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1 theme-card theme-border">
           <div class="font-bold text-sm text-white">Federal Bank</div>
-          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Customization</div>
-          <p class="text-xs text-slate-300 mt-1">CASA, Retail Loans, Term Deposits, batch charge sweeps, and Jasper MIS reports.</p>
+          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Customization[span_36](start_span)[span_36](end_span)</div>
+          <p class="text-xs text-slate-300 mt-1">CASA, Retail Loans, Term Deposits, batch charge sweeps, and Jasper MIS reports[span_37](start_span)[span_37](end_span).</p>
         </div>
 
         <!-- IndusInd Bank -->
-        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1">
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1 theme-card theme-border">
           <div class="font-bold text-sm text-white">IndusInd Bank</div>
-          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Customization</div>
-          <p class="text-xs text-slate-300 mt-1">CASA, Retail Loans, Overdraft, FI Inbound APIs, and PL/SQL query tuning.</p>
+          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Customization[span_38](start_span)[span_38](end_span)</div>
+          <p class="text-xs text-slate-300 mt-1">CASA, Retail Loans, Overdraft, FI Inbound APIs, and PL/SQL query tuning[span_39](start_span)[span_39](end_span).</p>
         </div>
 
         <!-- Union Bank of India -->
-        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1">
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1 theme-card theme-border">
           <div class="font-bold text-sm text-white">Union Bank of India</div>
-          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Delivery</div>
-          <p class="text-xs text-slate-300 mt-1">Retail Loans, Term Deposits, Overdraft, Trade Finance, and Jasper iReports.</p>
+          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Delivery[span_40](start_span)[span_40](end_span)</div>
+          <p class="text-xs text-slate-300 mt-1">Retail Loans, Term Deposits, Overdraft, Trade Finance, and Jasper iReports[span_41](start_span)[span_41](end_span).</p>
         </div>
 
         <!-- DCB Bank -->
-        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1">
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1 theme-card theme-border">
           <div class="font-bold text-sm text-white">DCB Bank</div>
-          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Delivery</div>
-          <p class="text-xs text-slate-300 mt-1">Custom menus for CASA, Trade Finance, and cursor-based PL/SQL reporting procedures.</p>
+          <div class="text-xs text-teal-400 font-mono">Finacle 10.x Delivery[span_42](start_span)[span_42](end_span)</div>
+          <p class="text-xs text-slate-300 mt-1">Custom menus for CASA, Trade Finance, and cursor-based PL/SQL reporting procedures[span_43](start_span)[span_43](end_span).</p>
         </div>
 
         <!-- ING Bank Netherlands -->
-        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1 sm:col-span-2">
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border space-y-1 sm:col-span-2 theme-card theme-border">
           <div class="font-bold text-sm text-white">ING Bank (Netherlands)</div>
-          <div class="text-xs text-teal-400 font-mono">Finacle 11.x Modernization</div>
-          <p class="text-xs text-slate-300 mt-1">FINUX product menus and JavaScript porting of legacy Finacle scripts for FUME JS 11.x compatibility.</p>
+          <div class="text-xs text-teal-400 font-mono">Finacle 11.x Modernization[span_44](start_span)[span_44](end_span)</div>
+          <p class="text-xs text-slate-300 mt-1">FINUX product menus and JavaScript porting of legacy Finacle scripts for FUME JS 11.x compatibility[span_45](start_span)[span_45](end_span).</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Feature 1: Featured Technical Insights -->
+    <section id="insights" class="space-y-4">
+      <div class="border-b border-brand-border pb-2 theme-border flex items-center justify-between">
+        <div>
+          <h2 class="text-xl font-bold text-white">Featured Technical Insights</h2>
+          <p class="text-xs text-slate-400 mt-0.5">Practical engineering breakdowns on core banking mechanics and database performance.</p>
+        </div>
+        <span class="text-xs font-mono text-teal-400">PUBLICATIONS</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <!-- Post 1 -->
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border flex flex-col justify-between space-y-3 theme-card theme-border">
+          <div class="space-y-1.5">
+            <span class="text-[10px] font-mono text-teal-400">FINACLE ARCHITECTURE</span>
+            <h3 class="text-sm font-bold text-white">How Finacle Actually Balances the Books: GL Explained Simply</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              A breakdown of General Ledger accounting mechanics, debit/credit legs, and balancing reconciliation during daily transaction processing[span_46](start_span)[span_46](end_span).
+            </p>
+          </div>
+          <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-teal-300 hover:text-teal-200 inline-flex items-center gap-1">
+            Read on LinkedIn &rarr;
+          </a>
+        </div>
+
+        <!-- Post 2 -->
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border flex flex-col justify-between space-y-3 theme-card theme-border">
+          <div class="space-y-1.5">
+            <span class="text-[10px] font-mono text-teal-400">ORACLE SQL TUNING</span>
+            <h3 class="text-sm font-bold text-white">Optimizing Full-Table Scans on Core Banking Tables</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Diagnostic strategies for index access paths, analyzing cost-based optimizer execution plans, and tuning high-volume account queries.
+            </p>
+          </div>
+          <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-teal-300 hover:text-teal-200 inline-flex items-center gap-1">
+            Read on LinkedIn &rarr;
+          </a>
+        </div>
+
+        <!-- Post 3 -->
+        <div class="p-4 rounded-lg bg-brand-card border border-brand-border flex flex-col justify-between space-y-3 theme-card theme-border">
+          <div class="space-y-1.5">
+            <span class="text-[10px] font-mono text-teal-400">BATCH ENGINEERING</span>
+            <h3 class="text-sm font-bold text-white">Handling Overnight EOD/BOD Batch Settlements</h3>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Managing database cursor locking, avoiding latch contention, and implementing bulk array updates for scheduled repayments[span_47](start_span)[span_47](end_span).
+            </p>
+          </div>
+          <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="text-xs font-mono text-teal-300 hover:text-teal-200 inline-flex items-center gap-1">
+            Read on LinkedIn &rarr;
+          </a>
         </div>
       </div>
     </section>
 
     <!-- Professional Experience Timeline -->
     <section id="experience" class="space-y-4">
-      <div class="border-b border-brand-border pb-2">
+      <div class="border-b border-brand-border pb-2 theme-border">
         <h2 class="text-xl font-bold text-white">Professional Experience</h2>
       </div>
 
       <div class="space-y-4">
         <!-- Changepond -->
-        <article class="p-5 rounded-lg bg-brand-card border border-brand-border space-y-2">
+        <article class="p-5 rounded-lg bg-brand-card border border-brand-border space-y-2 theme-card theme-border">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
             <div>
               <h3 class="text-base font-bold text-white">Senior Software Engineer &middot; Changepond Technologies</h3>
-              <p class="text-xs text-teal-400 font-mono">Client: Federal Bank &middot; Finacle 10.x</p>
+              <p class="text-xs text-teal-400 font-mono">Client: Federal Bank &middot; Finacle 10.x[span_48](start_span)[span_48](end_span)</p>
             </div>
             <span class="text-xs font-mono text-slate-400">Mar 2026 – Present</span>
           </div>
           <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 list-disc list-inside">
-            <li>Develop and customize menus across CASA, Retail Loans, and Term Deposits modules.</li>
-            <li>Implement custom APIs and FI Inbound customizations for external channel integrations.</li>
-            <li>Create automated batch jobs for fee collection, account freezing, and scheduled repayments.</li>
-            <li>Design and maintain MIS and regulatory reports using Jasper iReport and MRT.</li>
-            <li>Provide UAT support, production deployment execution, and issue resolution during warranty.</li>
+            <li>Develop and customize menus across CASA, Retail Loans, and Term Deposits modules[span_49](start_span)[span_49](end_span).</li>
+            <li>Implement custom APIs and FI Inbound customizations for external channel integrations[span_50](start_span)[span_50](end_span).</li>
+            <li>Create automated batch jobs for fee collection, account freezing, and scheduled repayments[span_51](start_span)[span_51](end_span).</li>
+            <li>Design and maintain MIS and regulatory reports using Jasper iReport and MRT[span_52](start_span)[span_52](end_span).</li>
+            <li>Provide UAT support, production deployment execution, and issue resolution during warranty[span_53](start_span)[span_53](end_span).</li>
           </ul>
         </article>
 
         <!-- Nityo Infotech -->
-        <article class="p-5 rounded-lg bg-brand-card border border-brand-border space-y-2">
+        <article class="p-5 rounded-lg bg-brand-card border border-brand-border space-y-2 theme-card theme-border">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
             <div>
               <h3 class="text-base font-bold text-white">Senior Software Engineer &middot; Nityo Infotech Services</h3>
-              <p class="text-xs text-teal-400 font-mono">Client: IndusInd Bank &middot; Finacle 10.x</p>
+              <p class="text-xs text-teal-400 font-mono">Client: IndusInd Bank &middot; Finacle 10.x[span_54](start_span)[span_54](end_span)</p>
             </div>
             <span class="text-xs font-mono text-slate-400">Aug 2025 – Jan 2026</span>
           </div>
           <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 list-disc list-inside">
-            <li>Customized core menus across CASA, Retail Loans, Term Deposits, and Overdraft.</li>
-            <li>Developed and tested FI Inbound/Outbound interfaces to streamline transaction flows.</li>
-            <li>Optimized PL/SQL queries and Finacle scripting to improve transaction response times.</li>
-            <li>Maintained code repositories and version management using Azure Repos.</li>
+            <li>Customized core menus across CASA, Retail Loans, Term Deposits, and Overdraft[span_55](start_span)[span_55](end_span).</li>
+            <li>Developed and tested FI Inbound/Outbound interfaces to streamline transaction flows[span_56](start_span)[span_56](end_span).</li>
+            <li>Optimized PL/SQL queries and Finacle scripting to improve transaction response times[span_57](start_span)[span_57](end_span).</li>
+            <li>Maintained code repositories and version management using Azure Repos[span_58](start_span)[span_58](end_span).</li>
           </ul>
         </article>
 
         <!-- Stackpos IT Solutions -->
-        <article class="p-5 rounded-lg bg-brand-card border border-brand-border space-y-2">
+        <article class="p-5 rounded-lg bg-brand-card border border-brand-border space-y-2 theme-card theme-border">
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
             <div>
               <h3 class="text-base font-bold text-white">Trainee Engineer &middot; Stackpos IT Solutions</h3>
-              <p class="text-xs text-teal-400 font-mono">Clients: ING Netherlands, Union Bank of India, DCB Bank</p>
+              <p class="text-xs text-teal-400 font-mono">Clients: ING Netherlands, Union Bank of India, DCB Bank[span_59](start_span)[span_59](end_span)</p>
             </div>
             <span class="text-xs font-mono text-slate-400">May 2022 – Jul 2025</span>
           </div>
           <ul class="space-y-1.5 text-xs sm:text-sm text-slate-300 list-disc list-inside">
-            <li>Ported legacy Finacle scripts to JavaScript for FUME JS 11.x for ING Bank (Netherlands).</li>
-            <li>Built custom menus and Jasper reports across Retail Loans, Term Deposits, and Trade Finance for Union Bank.</li>
-            <li>Authored PL/SQL cursor procedures and custom menus for CASA and Trade Finance for DCB Bank.</li>
+            <li>Ported legacy Finacle scripts to JavaScript for FUME JS 11.x for ING Bank (Netherlands)[span_60](start_span)[span_60](end_span).</li>
+            <li>Built custom menus and Jasper reports across Retail Loans, Term Deposits, and Trade Finance for Union Bank[span_61](start_span)[span_61](end_span).</li>
+            <li>Authored PL/SQL cursor procedures and custom menus for CASA and Trade Finance for DCB Bank[span_62](start_span)[span_62](end_span).</li>
           </ul>
         </article>
       </div>
@@ -239,58 +395,58 @@
 
     <!-- Technical Skills -->
     <section id="skills" class="space-y-4">
-      <div class="border-b border-brand-border pb-2">
+      <div class="border-b border-brand-border pb-2 theme-border">
         <h2 class="text-xl font-bold text-white">Technical Skills</h2>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border">
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
           <div class="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">Finacle Core</div>
           <ul class="text-xs text-slate-300 space-y-1">
-            <li>&bull; Finacle 10.x &amp; 11.x</li>
-            <li>&bull; Finacle Scripting &amp; FUME JS</li>
-            <li>&bull; FINUX &amp; Menu Customization</li>
-            <li>&bull; FI Inbound &amp; Outbound</li>
-            <li>&bull; CRM &amp; ONS Customization</li>
+            <li>&bull; Finacle 10.x &amp; 11.x[span_63](start_span)[span_63](end_span)</li>
+            <li>&bull; Finacle Scripting &amp; FUME JS[span_64](start_span)[span_64](end_span)</li>
+            <li>&bull; FINUX &amp; Menu Customization[span_65](start_span)[span_65](end_span)</li>
+            <li>&bull; FI Inbound &amp; Outbound[span_66](start_span)[span_66](end_span)[span_67](start_span)[span_67](end_span)</li>
+            <li>&bull; CRM &amp; ONS Customization[span_68](start_span)[span_68](end_span)</li>
           </ul>
         </div>
 
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border">
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
           <div class="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">Database &amp; Languages</div>
           <ul class="text-xs text-slate-300 space-y-1">
-            <li>&bull; Oracle SQL &amp; PL/SQL</li>
-            <li>&bull; Stored Procedures &amp; Cursors</li>
-            <li>&bull; JavaScript &amp; Core Java</li>
-            <li>&bull; Shell Scripting (Bash)</li>
+            <li>&bull; Oracle SQL &amp; PL/SQL[span_69](start_span)[span_69](end_span)</li>
+            <li>&bull; Stored Procedures &amp; Cursors[span_70](start_span)[span_70](end_span)</li>
+            <li>&bull; JavaScript &amp; Core Java[span_71](start_span)[span_71](end_span)</li>
+            <li>&bull; Shell Scripting (Bash)[span_72](start_span)[span_72](end_span)</li>
           </ul>
         </div>
 
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border">
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
           <div class="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">Banking Domains</div>
           <ul class="text-xs text-slate-300 space-y-1">
-            <li>&bull; CASA (Current &amp; Savings)</li>
-            <li>&bull; Retail Loans &amp; Repayments</li>
-            <li>&bull; Term Deposits &amp; Overdraft</li>
-            <li>&bull; Cash Credit &amp; Trade Finance</li>
+            <li>&bull; CASA (Current &amp; Savings)[span_73](start_span)[span_73](end_span)[span_74](start_span)[span_74](end_span)</li>
+            <li>&bull; Retail Loans &amp; Repayments[span_75](start_span)[span_75](end_span)[span_76](start_span)[span_76](end_span)</li>
+            <li>&bull; Term Deposits &amp; Overdraft[span_77](start_span)[span_77](end_span)[span_78](start_span)[span_78](end_span)</li>
+            <li>&bull; Cash Credit &amp; Trade Finance[span_79](start_span)[span_79](end_span)</li>
           </ul>
         </div>
 
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border">
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
           <div class="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">APIs &amp; Reporting</div>
           <ul class="text-xs text-slate-300 space-y-1">
-            <li>&bull; REST &amp; SOAP Web Services</li>
-            <li>&bull; Jasper iReport (JRXML)</li>
-            <li>&bull; MRT Reporting</li>
-            <li>&bull; Postman &amp; SoapUI</li>
+            <li>&bull; REST &amp; SOAP Web Services[span_80](start_span)[span_80](end_span)</li>
+            <li>&bull; Jasper iReport (JRXML)[span_81](start_span)[span_81](end_span)[span_82](start_span)[span_82](end_span)</li>
+            <li>&bull; MRT Reporting[span_83](start_span)[span_83](end_span)[span_84](start_span)[span_84](end_span)</li>
+            <li>&bull; Postman &amp; SoapUI[span_85](start_span)[span_85](end_span)</li>
           </ul>
         </div>
 
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border sm:col-span-2">
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border sm:col-span-2 theme-card theme-border">
           <div class="text-xs font-bold text-teal-400 uppercase tracking-wider mb-2">Tools &amp; Certification</div>
           <ul class="text-xs text-slate-300 space-y-1">
-            <li>&bull; Git, SVN, Azure Repos, Jira</li>
-            <li>&bull; Linux / Unix Environment</li>
-            <li class="text-teal-300 font-medium">&bull; IBM Certified: Linux &amp; Shell Scripting (2024)</li>
+            <li>&bull; Git, SVN, Azure Repos, Jira[span_86](start_span)[span_86](end_span)[span_87](start_span)[span_87](end_span)</li>
+            <li>&bull; Linux / Unix Environment[span_88](start_span)[span_88](end_span)</li>
+            <li class="text-teal-300 font-medium">&bull; IBM Certified: Linux &amp; Shell Scripting (2024)[span_89](start_span)[span_89](end_span)</li>
           </ul>
         </div>
       </div>
@@ -298,34 +454,34 @@
 
     <!-- Education -->
     <section class="space-y-4">
-      <div class="border-b border-brand-border pb-2">
+      <div class="border-b border-brand-border pb-2 theme-border">
         <h2 class="text-xl font-bold text-white">Education</h2>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border">
-          <div class="font-bold text-sm text-white">M.C.A.</div>
-          <div class="text-xs text-teal-400">Madurai Kamaraj University</div>
-          <div class="text-[11px] text-slate-400 font-mono mt-1">2022 – 2024</div>
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
+          <div class="font-bold text-sm text-white">M.C.A.[span_90](start_span)[span_90](end_span)</div>
+          <div class="text-xs text-teal-400">Madurai Kamaraj University[span_91](start_span)[span_91](end_span)</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-1">2022 – 2024[span_92](start_span)[span_92](end_span)</div>
         </div>
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border">
-          <div class="font-bold text-sm text-white">M.Sc. Mathematics</div>
-          <div class="text-xs text-teal-400">Madurai Kamaraj University</div>
-          <div class="text-[11px] text-slate-400 font-mono mt-1">2018 – 2020</div>
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
+          <div class="font-bold text-sm text-white">M.Sc. Mathematics[span_93](start_span)[span_93](end_span)</div>
+          <div class="text-xs text-teal-400">Madurai Kamaraj University[span_94](start_span)[span_94](end_span)</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-1">2018 – 2020[span_95](start_span)[span_95](end_span)</div>
         </div>
-        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border">
-          <div class="font-bold text-sm text-white">B.Sc. Mathematics</div>
-          <div class="text-xs text-teal-400">Madurai Kamaraj University</div>
-          <div class="text-[11px] text-slate-400 font-mono mt-1">2015 – 2018</div>
+        <div class="p-3.5 rounded-lg bg-brand-card border border-brand-border theme-card theme-border">
+          <div class="font-bold text-sm text-white">B.Sc. Mathematics[span_96](start_span)[span_96](end_span)</div>
+          <div class="text-xs text-teal-400">Madurai Kamaraj University[span_97](start_span)[span_97](end_span)</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-1">2015 – 2018[span_98](start_span)[span_98](end_span)</div>
         </div>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="pt-6 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
-      <div>&copy; 2026 Dinesh Babu J &middot; Aluva, Kerala</div>
+    <footer class="pt-6 border-t border-brand-border flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400 theme-border">
+      <div>&copy; 2026 Dinesh Babu J &middot; Aluva, Kerala[span_99](start_span)[span_99](end_span)</div>
       <div class="flex items-center gap-4">
         <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="hover:text-teal-400 transition">LinkedIn</a>
-        <a href="mailto:dinesh2211998@gmail.com" class="hover:text-teal-400 transition">Email</a>
+        <a href="mailto:dinesh2211998@gmail.com?subject=Finacle%20Opportunity%20-%20Discussion" class="hover:text-teal-400 transition">Email</a>
         <a href="tel:+919344989891" class="hover:text-teal-400 transition">Phone</a>
       </div>
     </footer>
@@ -333,9 +489,12 @@
   </div>
 
   <!-- Mobile Sticky Bottom Quick-Bar -->
-  <div class="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-slate-900/95 backdrop-blur-md border-t border-brand-border px-4 py-2.5 flex items-center justify-around text-xs">
+  <div class="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-slate-900/95 backdrop-blur-md border-t border-brand-border px-4 py-2.5 flex items-center justify-around text-xs theme-border">
     <a href="Dinesh_Babu_J_Resume.pdf" download="Dinesh_Babu_J_Resume.pdf" class="text-teal-400 font-semibold flex items-center gap-1">
       &darr; Resume
+    </a>
+    <a href="mailto:dinesh2211998@gmail.com?subject=Finacle%20Opportunity%20-%20Discussion" class="text-slate-300">
+      Email
     </a>
     <a href="https://linkedin.com/in/dineshbabuj" target="_blank" rel="noopener noreferrer" class="text-slate-300">
       LinkedIn
@@ -343,13 +502,55 @@
     <a href="tel:+919344989891" class="text-slate-300">
       Call
     </a>
-    <button onclick="copyToClipboard('dinesh2211998@gmail.com', 'Email copied!')" class="text-slate-300">
-      Email
-    </button>
   </div>
 
-  <!-- Vanilla JS Script -->
+  <!-- Vanilla JS Script for Theme, Toast, and Copying -->
   <script>
+    // Feature 4: Theme Toggle Logic (Navy Dark <-> OLED Deep Black)
+    function toggleOledTheme() {
+      const body = document.body;
+      const themeLabel = document.getElementById('theme-label');
+      const themeIcon = document.getElementById('theme-icon');
+      const cards = document.querySelectorAll('.theme-card');
+      const borders = document.querySelectorAll('.theme-border');
+
+      const isOled = body.classList.toggle('bg-black');
+
+      if (isOled) {
+        body.classList.remove('bg-brand-dark');
+        themeLabel.innerText = "NAVY";
+        themeIcon.innerText = "☀️";
+        cards.forEach(card => {
+          card.classList.remove('bg-brand-card');
+          card.classList.add('bg-neutral-950');
+        });
+        borders.forEach(b => {
+          b.classList.remove('border-brand-border');
+          b.classList.add('border-neutral-800');
+        });
+        localStorage.setItem('theme_mode', 'oled');
+      } else {
+        body.classList.add('bg-brand-dark');
+        themeLabel.innerText = "OLED";
+        themeIcon.innerText = "🌙";
+        cards.forEach(card => {
+          card.classList.add('bg-brand-card');
+          card.classList.remove('bg-neutral-950');
+        });
+        borders.forEach(b => {
+          b.classList.add('border-brand-border');
+          b.classList.remove('border-neutral-800');
+        });
+        localStorage.setItem('theme_mode', 'navy');
+      }
+    }
+
+    // Auto-restore saved theme
+    if (localStorage.getItem('theme_mode') === 'oled') {
+      toggleOledTheme();
+    }
+
+    // Copy to clipboard notification toast
     function copyToClipboard(text, message) {
       navigator.clipboard.writeText(text).then(function() {
         const toast = document.getElementById('toast');
@@ -365,5 +566,4 @@
     }
   </script>
 </body>
-                                                                         </html>
-                                                                         
+</html>
